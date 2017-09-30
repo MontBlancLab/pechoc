@@ -8,9 +8,15 @@ var data  = {
 	message : ""
 };
 
+var bdd = require('./data/fiche_chocards.js');
+
 //---------------------------------------------------------------------------
-server.listen( port, function( ) {		
+server.listen( port, function() {		
   console.log( 'it is listening at port %d', port );
+  console.log(bdd.chocards.length);
+  for(var i=0; i < bdd.chocards.length; i++) {
+  	  console.log(bdd.chocards[i].code);
+  }
 });
 
 // view engine setup
