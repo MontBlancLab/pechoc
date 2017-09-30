@@ -5,7 +5,8 @@ var app = express();
 
 var server = require('http').createServer(app);
 var data  = {
-	message : ""
+	message : "",
+	chocards : {}
 };
 
 var bdd = require('./data/fiche_chocards.js');
@@ -13,10 +14,17 @@ var bdd = require('./data/fiche_chocards.js');
 //---------------------------------------------------------------------------
 server.listen( port, function() {		
   console.log( 'it is listening at port %d', port );
-  console.log(bdd.chocards.length);
-  for(var i=0; i < bdd.chocards.length; i++) {
-  	  console.log(bdd.chocards[i].code);
+  console.log(bdd.chocards.length + " chocards.");
+  // for(var i=0; i < bdd.chocards.length; i++) {
+  // 	  console.log(bdd.chocards[i].code);
+  // }
+  // ajout des chocards aux data
+  data.chocards = bdd.chocards;
+
+  for(var i=0; i < data.chocards.length; i++) {
+  	  console.log(data.chocards[i].code);
   }
+
 });
 
 // view engine setup
