@@ -4,7 +4,9 @@ var express = require('express');
 var app = express();
 
 var server = require('http').createServer(app);
-var data  = null;
+var data  = {
+	message : ""
+};
 
 //---------------------------------------------------------------------------
 server.listen( port, function( ) {		
@@ -29,23 +31,25 @@ app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts
 // });
 
 app.get('/', function(req, res) {
-
+	if ( req.param('message') != undefined ) {
+			data.message = req.param('message'); // La bonne faille XHR !
+		}
 	//var html = new EJS({url: 'index.ejs'}).render(data);
-	res.render('index',data)
+	res.render('index',{ data: data });
 
     //res.setHeader('Content-Type', 'text/html');
 });
 
 app.get('/naissance', function(req, res) {
 
-	res.render('naissance',data)
+	res.render('naissance',{ data: data });
 	//var html = new EJS({url: 'naissance.ejs'}).render(data);
     //res.end('ici l\'oeuf');
 });
 
 app.get('/tinder', function(req, res) {
 
-	res.render('tinder',data)
+	res.render('tinder',{ data: data });
 	//var html = new EJS({url: 'tinder.ejs'}).render(data);
  	//res.render('index', { data: data });
 

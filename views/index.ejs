@@ -1,1 +1,54 @@
-Index
+ <!DOCTYPE html>
+<html>
+ <head>
+	 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /> 
+	 <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	 <meta name="google" value="notranslate">
+	<title>index</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+  
+ 	 <style>
+
+	</style>
+</head>
+
+  <body>
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+		<h2>Pécho chocard !</h2>
+      </div>
+	</div>
+	 <% if ( data.message == "dead" ) { %>
+		<div class="alert alert-danger">
+		  <strong>Argh !</strong>
+		  Oh ! Petit chocard tu es mort !
+		</div>	 	
+	 <% } else { %>
+		<div class="alert alert-info">
+		  <strong>Youpi !</strong>
+		  Petit chocard, tu es vivant !
+		</div>	 	
+	 <% } %>
+      <!-- Begin page content -->
+      <div class="container"> 
+      	<div id="buttonBar">
+      		<a class="btn btn-info" href="/naissance">Je suis dans mon oeuf...</a>
+      		<a class="btn btn-danger" href="/tinder">je voudrais pécho !</a>
+      	</div>     	
+      </div>
+
+	<footer class="footer">
+	</footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type='text/javascript'>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script type='text/javascript'>
+	</script>
+
+  </body>
+</html>
