@@ -137,7 +137,7 @@ div.ui-slider {
 
       var chocardSelfId = $stopElm.attr("id");
 	  // Changer le background pour afficher le bon chocard.
-	  $('#body').css('background-image', "url(../img/roulette/profils/" + chocardPechoId + ".png)");
+	  $('#body').css('background-image', "url(../img/roulette/profils/" + chocardSelfId + ".png)");
 
       socket.emit('chocardChosen', {
         chocardSelfId: chocardSelfId

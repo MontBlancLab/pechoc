@@ -50,6 +50,44 @@
      left:50%;
      transform:translateX(-50%)
    }
+
+   .splash {
+     position:absolute;
+     top:0;
+     left:0;
+     bottom:0;
+     right:0;
+     z-index:99999999999999999999999991;
+     display:none;
+     background-size: cover;
+     background-position: center center;
+     border: solid 16px white;
+   }
+
+   .btn-conclu {
+     position:absolute;
+     left:0;
+     right:0;
+     bottom:25%;
+     height:25%;
+   }
+
+   .btn-rateau {
+     position:absolute;
+     left:0;
+     right:0;
+     bottom:0%;
+     height:25%;
+   }
+
+   .btn-back {
+     position:absolute;
+     top:0;
+     left:0;
+     width:50px;
+     height:50px;
+     z-index:99999999999999999999999999999999999;
+   }
   </style>
 </head>
 
@@ -66,15 +104,29 @@
         <% } %>
       <% } %>
       </ul>
-      <button class="but-nope">X</button>
       <button class="but-yay"></button>
-      <span id="counter">8</span>
     </div>
   </section>
 
-  <footer>
-    <p>Pécho ton Chocard !</p>
-  </footer>
+  <div style="display:none">
+<% for (var i=0; i< data.tinder_chocards.length; i++) { %>
+  <% if (data.tinder_chocards[i].pecho == false) { %>
+    <img src="/img/tinder/<%= data.tinder_chocards[i].code %>.png)"/>
+  <% } %>
+<% } %>
+  </div>
+
+<div class="splash persuadez" style="background-image:url(/img/splash/persuadez.png)"></div>
+<div class="splash persuadez-suite" style="background-image:url(/img/splash/persuadez-suite.png)">
+  <div class="btn-conclu"></div>
+  <div class="btn-rateau"></div>
+</div>
+<div class="splash conclu" style="background-image:url(/img/splash/conclu.png)"></div>
+<div class="splash rateau" style="background-image:url(/img/splash/rateau.png)"></div>
+<div class="splash prochain-tour" style="background-image:url(/img/splash/prochain-tour.png)"></div>
+
+<div class="btn-back"></div>
+
     <script type='text/javascript'>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
 <script src="/public/js/hammer.min.js"></script>
 <script src="/public/js/jquery.hammer.js"></script>
@@ -89,13 +141,62 @@
 <script type="text/javascript">
 $(function(){
 
-var player = null;
+  var player = null;
 
-socket.on('player', function(p){
-  player = p;
-  console.log(player);
-  $('[data-sexe="'+player.chocard.sexe+'"]').remove();
-});
+  socket.on('player', function(p){
+    player = p;
+    console.log(player);
+    $('[data-sexe="'+player.chocard.sexe+'"]').remove();
+  });
+
+  $('.but-yay').on('click', function(){
+    $('.splash').hide();
+    $('.persuadez').show();
+
+    $('.btn-back').on('click', function(){
+      $('.splash').hide();
+    });
+  });
+
+  $('.persuadez').on('click', function(){
+    $('.splash').hide();
+    $('.persuadez-suite').show();
+
+    $('.btn-back').on('click', function(){
+      $('.splash').hide();
+      $('.persuadez').show();
+    });
+  });
+
+  $('.btn-conclu').on('click', function(){
+    $('.splash').hide();
+    $('.conclu').show();
+
+    $('.btn-back').on('click', function(){
+      $('.splash').hide();
+      $('.persuadez-suite').show();
+    });
+  });
+
+  $('.btn-rateau').on('click', function(){
+    $('.splash').hide();
+    $('.rateau').show();
+
+    $('.btn-back').on('click', function(){
+      $('.splash').hide();
+      $('.persuadez-suite').show();
+    });
+  });
+
+  $('.conclu, .rateau').on('click', function(){
+    $('.splash').hide();
+    $('.prochain-tour').show();
+
+    $('.btn-back').on('click', function(){
+      $('.splash').hide();
+      $('.persuadez-suite').show();
+    });
+  });
 
   var zIndex = 10;
 
