@@ -8,8 +8,24 @@
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 
  	 <style>
+ 	 .container {
+ 	 	width:90%;
+ 	 }
 	 #buttonBar {
-	 	visibility:hidden;
+	 }
+
+	 #txtfeli {
+	 	visibility: hidden;
+	 	position: absolute;
+	 	top: 20%;
+	 	left:20%;
+	 }
+
+	 #flefeli {
+	 	visibility: hidden;
+	 	position: absolute;
+	 	top: 90%;
+	 	left:40%;
 	 }
 
 	</style>
@@ -18,9 +34,9 @@
   <body>
     <!-- Begin page content -->
     <div class="container">
-      <div class="page-header">
-      </div>
-		<a id="butChange" href="#"><img id="mainImage" src="img/Oeuf-01.png" width="30%"/></a>
+		<a id="txtfeli" href="#"><img id="mainImage" src="img/naissance/txt-felicitation.png" width="60%"/></a>
+		<a id="butChange" href="#"><img id="mainImage" src="img/naissance/intro-01.png" width="90%"/></a>
+		<a id="flefeli" href="javascript:pageSuivante();"><img id="mainImage" src="img/naissance/fleche-felicitation.png" width="40%"/></a>
     </div>
 
 	<footer class="footer">
@@ -37,22 +53,91 @@
     var target = document.getElementById('imageDOeuf');
     var counter = 0;
     var imgArray = [
-        "img/Oeuf-02.png",
-        "img/Oeuf-03.png"
+        "img/naissance/intro-01.png",
+        "img/naissance/intro-02.png",
+        "img/naissance/intro-03.png",
+        "img/naissance/intro-04.png"
     ];
 
 	var counter = 0;
 	document.getElementById('butChange').onclick = function () {
-		if ( counter <= 1) {
+		console.log("Ici...");
+		if ( counter <= 5) {
 		    document.getElementById('mainImage').src = imgArray[counter % imgArray.length];
 		    counter += 1;
-		    if (counter > 1) {
+		    if (counter > 4) {
 		    	// L'oeuf est ouvert, les boutons alive/dead aparaîssent
-		    	//$("#buttonBar").attr("style", "visibility:visible;");
-		    	location.href = "/dedelavie";
+		    	// ici l'animation d'explosion de l'oeuf.
+		    	lancer_anim();
 		    }
 		}
 	}
+
+	var animCounter = 0;
+    var animArray = [
+		"img/naissance/anim/intro_001.png",
+		"img/naissance/anim/intro_002.png",
+		"img/naissance/anim/intro_003.png",
+		"img/naissance/anim/intro_004.png",
+		"img/naissance/anim/intro_005.png",
+		"img/naissance/anim/intro_006.png",
+		"img/naissance/anim/intro_007.png",
+		"img/naissance/anim/intro_008.png",
+		"img/naissance/anim/intro_009.png",
+		"img/naissance/anim/intro_010.png",
+		"img/naissance/anim/intro_011.png",
+		"img/naissance/anim/intro_012.png",
+		"img/naissance/anim/intro_013.png",
+		"img/naissance/anim/intro_014.png",
+		"img/naissance/anim/intro_015.png",
+		"img/naissance/anim/intro_016.png",
+		"img/naissance/anim/intro_017.png",
+		"img/naissance/anim/intro_018.png",
+		"img/naissance/anim/intro_019.png",
+		"img/naissance/anim/intro_020.png",
+		"img/naissance/anim/intro_021.png",
+		"img/naissance/anim/intro_022.png",
+		"img/naissance/anim/intro_023.png",
+		"img/naissance/anim/intro_024.png",
+		"img/naissance/anim/intro_025.png",
+		"img/naissance/anim/intro_026.png",
+		"img/naissance/anim/intro_027.png",
+		"img/naissance/anim/intro_028.png",
+		"img/naissance/anim/intro_029.png",
+		"img/naissance/anim/intro_030.png",
+		"img/naissance/anim/intro_031.png",
+		"img/naissance/anim/intro_032.png",
+		"img/naissance/anim/intro_033.png",
+		"img/naissance/anim/intro_034.png",
+		"img/naissance/anim/intro_035.png",
+		"img/naissance/anim/intro_036.png",
+		"img/naissance/anim/intro_037.png",
+		"img/naissance/anim/intro_038.png",
+		"img/naissance/anim/intro_039.png",
+		"img/naissance/anim/intro_040.png",
+		"img/naissance/anim/intro_041.png",
+		"img/naissance/anim/intro_042.png",
+		"img/naissance/anim/intro_043.png",
+		"img/naissance/anim/intro_044.png",
+		"img/naissance/anim/intro_045.png",
+    ];
+
+    function lancer_anim() {
+    	if (animCounter < animArray.length) {
+  			document.getElementById('mainImage').src = animArray[animCounter];
+	  		animCounter++;
+	 	    setTimeout(lancer_anim, 1000/30);
+ 		} else {
+    		$("#txtfeli").show();
+    		$("#flefeli").show();
+    	}
+    }
+
+    function pageSuivante() {
+		// Page suivante
+		location.href = "/dedelavie";
+    }
+
 	</script>
 
   <script src="/socket.io/socket.io.js"></script>
