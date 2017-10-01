@@ -110,6 +110,11 @@ div.param_label {
 div.ui-slider {
 	width: 300px;
 }
+
+.splash-click {
+  background:transparent;
+  display:block;
+}
  	</style>
 	</head>
 	<body id="body">
@@ -128,6 +133,8 @@ div.ui-slider {
 				</div>
 			</div>
 		</div>
+
+    <div class="splash splash-click"></div>
 
 
     <div class="splash prochain-tour" style="background-image:url(/img/splash/prochain-tour.png)"></div>
@@ -165,7 +172,7 @@ div.ui-slider {
 	  // Changer le background pour afficher le bon chocard.
 	  $('#body').css('background-image', "url(../img/roulette/profils/" + chocardSelfId + ".png)");
 
-      $('*').on('click', function(){
+      $('.splash-click').on('click', function(){
         $('.prochain-tour').show();
       });
 

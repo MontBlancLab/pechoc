@@ -122,6 +122,7 @@
 <div class="splash rateau" style="background-image:url(/img/splash/rateau.png)"></div>
 <div class="splash prochain-tour-tinder" style="background-image:url(/img/splash/prochain-tour.png)"></div>
 <div class="splash prochain-tour-roulette" style="background-image:url(/img/splash/prochain-tour.png)"></div>
+<div class="splash nom" style="background-image:url(/img/splash/nom.png)"></div>
 
 <div class="btn-back"></div>
 
@@ -207,6 +208,16 @@ $(function(){
   });
 
   $('.prochain-tour-roulette').on('click', function(){
+    $('.splash').hide();
+    $('.nom').show();
+
+    $('.btn-back').on('click', function(){
+      $('.splash').hide();
+      $('.persuadez-suite').show();
+    });
+  });
+
+  $('.nom').on('click', function(){
     window.location.replace('/roulette');
   });
 
