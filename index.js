@@ -13,7 +13,7 @@ var data  = {
 };
 
 var bdd_tinder = require('./data/fiche_chocards.js');
-var bdd_profils = require('./data/fprofil_chocards.js');
+var bdd_profils = require('./data/profil_chocards.js');
 
 //---------------------------------------------------------------------------
 server.listen( port, function() {		
