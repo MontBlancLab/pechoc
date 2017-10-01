@@ -1,24 +1,24 @@
  <!DOCTYPE html>
 <html>
  <head>
-	 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /> 
+	 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 	 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 	 <meta name="google" value="notranslate">
 	<title>Dé de la vie</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
-  
+
  	 <style>
 	 #buttonBar {
 	 	bottom :10%;
 	 }
 
-	 body { 
+	 body {
 		color:black;
 		background-color:white;
-		background-image: url(img/bg-life.png); 
+		background-image: url(img/bg-life.png);
 	    background-repeat: no-repeat;
 	    background-attachment: fixed;
-	    background-position: center; 
+	    background-position: center;
 	 }
 	 .red { border:1px solid red; }
 
@@ -36,8 +36,8 @@
     		<div class="col red center">
 		      	<div id="buttonBar">
 		      		<a class="buttonDeadAlive" href="/?message=dead"><img src="img/dedelavie/btn_mort.png" width="20%"/></a>
-		      		<a class="buttonDeadAlive" href="/roulette"><img src="img/dedelavie/btn_vivant.png" width="20%"/></a> 
-		      	</div>     	    			
+		      		<a class="buttonDeadAlive" href="/roulette"><img src="img/dedelavie/btn_vivant.png" width="20%"/></a>
+		      	</div>
     		</div>
     	</div>
     </div>
@@ -61,17 +61,21 @@
     ];
 
 	var counter = 0;
-	document.getElementById('butChange').onclick = function () {  
+	document.getElementById('butChange').onclick = function () {
 		if ( counter <= 1) {
-		    document.getElementById('mainImage').src = imgArray[counter % imgArray.length]; 
+		    document.getElementById('mainImage').src = imgArray[counter % imgArray.length];
 		    counter += 1;
 		    if (counter > 1) {
 		    	// L'oeuf est ouvert, les boutons alive/dead aparaîssent
 		    	$("#buttonBar").attr("style", "visibility:visible;");
 		    }
-		}    
+		}
 	}
 	</script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/js/js.cookie.js"></script>
+  <script src="/public/js/script.js"></script>
 
   </body>
 </html>
