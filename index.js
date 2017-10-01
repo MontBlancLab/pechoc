@@ -63,7 +63,7 @@ app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts
 
 
 
-server.listen(port, function() {
+server.listen(port, "0.0.0.0", function() {
   console.log( 'it is listening at port %d', port );
   console.log(bdd_tinder.chocards.length + " chocards dans Tinder.");
   console.log(bdd_profils.profils.length + " chocards dans les profils.");
