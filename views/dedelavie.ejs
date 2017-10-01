@@ -4,6 +4,7 @@
 	 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 	 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 	 <meta name="google" value="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>Dé de la vie</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 
@@ -19,11 +20,6 @@
 
 	 body {
 		color:black;
-		background-color:white;
-		background-image: url(img/bg-life.png);
-	    background-repeat: no-repeat;
-	    background-position: top center;
-      background-size:cover;
       position:absolute;
       top:0;
       left:0;
@@ -51,25 +47,27 @@
      display:none;
    }
 
+   .dedelavie {
+
+ 		background-color:white;
+ 		background-image: url(img/bg-life.png);
+ 	    background-repeat: no-repeat;
+ 	    background-position: top center;
+       background-size:cover;
+       display:block;
+   }
+
 	</style>
 </head>
 
   <body>
-    <!-- Begin page content -->
-    <div class="container-fluid">
-    	<div class="row">
-    		<div class="col">
-    		</div>
-    	</div>
-    	<div class="row">
-    		<div class="col red center">
-		      	<div id="buttonBar">
-		      		<div class="buttonDeadAlive btn-dedelavie-dead" style="background-image:url(img/dedelavie/btn_mort.png)" width="20%"/></div>
-		      		<div class="buttonDeadAlive btn-dedelavie-alive" style="background-image:url(img/dedelavie/btn_vivant.png)" width="20%"/></div>
-		      	</div>
-    		</div>
-    	</div>
+
+    <div class="splash dedelavie">
+    <div id="buttonBar">
+      <div class="buttonDeadAlive btn-dedelavie-dead" style="background-image:url(img/dedelavie/btn_mort.png)" width="20%"/></div>
+      <div class="buttonDeadAlive btn-dedelavie-alive" style="background-image:url(img/dedelavie/btn_vivant.png)" width="20%"/></div>
     </div>
+  </div>
 
     <div class="splash dedelavie-dead" style="background-image:url(img/splash/mort.png)"></div>
 
@@ -86,6 +84,10 @@
 
   $('.btn-dedelavie-dead').on('click', function(){
     $('.dedelavie-dead').show();
+  });
+
+  $('.btn-dedelavie-alive').on('click', function(){
+    window.location.replace('/roulette');
   });
 	// Global vars
     var target = document.getElementById('imageDOeuf');

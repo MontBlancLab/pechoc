@@ -3,6 +3,7 @@
  <head>
 	 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 	 <meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	 <meta name="google" value="notranslate">
 	<title>Naissance</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -11,6 +12,14 @@
  	 .container {
  	 	width:90%;
  	 }
+
+   body {
+     position:absolute;
+     top:0;
+     left:0;
+     bottom:0;
+     right:0;
+   }
 	 #buttonBar {
 	 }
 
@@ -49,6 +58,23 @@
      display:none;
    }
 
+   .naissance-animation {
+     position:absolute;
+     top:0;
+     left:0;
+     bottom:0;
+     right:0;
+     white-space: nowrap;
+     font-size:0;
+   }
+
+   .naissance-animation .naissance-egg-crack {
+     display:inline-block;
+     position:relative;
+     width:100%;
+     height:100%;
+   }
+
 	</style>
 </head>
 
@@ -65,7 +91,7 @@
 
     <!-- <div class="splash naissance-egg" style="background-image:url(/img/naissance/intro-01.png)"></div> -->
 
-
+    <div class="naissance-animation"></div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -156,24 +182,44 @@
 
     for (var i = 0; i < animArray.length; i++) {
       var j = (imgArray.length-1+i);
-      $('body').append('<div class="splash naissance-egg-crack" data-i="'+(j)+'" style="background-image:url('+animArray[i]+');z-index:'+(100-j)+'">');
+      $('.naissance-animation').append('<div class="splash naissance-egg-crack" data-i="'+(j)+'" style="background-image:url('+animArray[i]+');z-index:'+(100-j)+'">');
     }
 
     function lancer_anim() {
+      window.requestAnimationFrame(step);
+    }
+
+    function step() {
+
       $('#butChange').off('click');
 
       if (animCounter < animArray.length) {
          var j = (imgArray.length-1+animCounter);
+
+      //   $('.naissance-animation').css('margin-left', '-'+animCounter+'00%');
+
          $('.naissance-egg-crack').hide();
          $('.naissance-egg-crack[data-i="'+(j)+'"]').show();
 
   	  	animCounter++;
-  	 	   setTimeout(lancer_anim, 1000/30);
+  	 	  // setTimeout(lancer_anim, 1000/30);
+        window.requestAnimationFrame(step);
    		} else {
+        window.location.replace('/dedelavie');
+
       	$("#txtfeli").show();
       	$("#flefeli").show();
       }
     }
+
+
+
+
+
+
+
+
+
 
     function pageSuivante() {
 		// Page suivante
