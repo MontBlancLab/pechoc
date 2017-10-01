@@ -16,7 +16,7 @@ var connect = require('connect');
 
 //---------------------------------------------------------------------------
 
-		var data  = {
+		var dataForTemplate  = {
 			message : "",
 			chocards : {}
 		};
@@ -57,7 +57,7 @@ app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redi
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/public/js', express.static(__dirname + '/public/js')); // redirect bootstrap JS
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
-app.use('/css', express.static(__dirname + '/node_modules/jquery-ui/dist/css')); 
+app.use('/css', express.static(__dirname + '/node_modules/jquery-ui/dist/css'));
 app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts')); // redirect bootstrap JS
 
 
@@ -67,8 +67,8 @@ server.listen(port, function() {
   console.log(bdd_tinder.chocards.length + " chocards dans Tinder.");
   console.log(bdd_profils.profils.length + " chocards dans les profils.");
   // ajout des chocards aux data
-  data.tinder_chocards = bdd_tinder.chocards;
-  data.profils_chocards = bdd_profils.profils;
+  dataForTemplate.tinder_chocards = bdd_tinder.chocards;
+  dataForTemplate.profils_chocards = bdd_profils.profils;
   // for(var i=0; i < data.chocards.length; i++) {
   // 	  console.log(data.chocards[i].code);
   // }
@@ -85,64 +85,138 @@ var players = [];
 
 io.on('connection', function (socket) {
 
-  socket.emit('news', { hello: 'world' });
-
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+	socket.data = {};
 
 	socket.on("login", function(data) {
+		// We get all player's data
+		var player = getPlayer(data.playerId);
 
-		console.log('Socket length before push:'+players.length);
+		// We create player if he does not exists yet
+		if (player == null) {
+			console.log('#'+data.playerId+' a rejoint le jeu !');
 
-		socket.playerId = data.playerId;
-		players.push(socket);
+			players.push({
+				playerId: data.playerId
+			});
+			player = getPlayer(data.playerId);
+		}
 
-		console.log('Socket Login of player ' + socket.playerId);
+		// We set the player id to the current socket
+		socket.data.playerId = player.playerId;
 
-		console.log('-----');
-		console.log('Sockets list of '+players.length+' player(s):');
-		players.forEach(function(player) {
-			console.log('#'+player.playerId);
-		});
-		console.log('-----');
+		promptPlayers();
   });
 
+	/* * * * * * * * * *
+	 *
+	 * 	When a bird is taken by a player
+	 *
+	 */
+
+	socket.on('chocardPecho', function(data) {
+		// We get all player's data
+		var player = getPlayer(socket.data.playerId);
+
+		if (player != null) {
+			console.log('#'+player.playerId+' a pécho un chocard : '+data.chocardPechoId);
+
+			// We update birds database
+			dataForTemplate.profils_chocards.forEach(function(profil) {
+				if (profil.code == data.chocardPechoId) {
+					profil.choisi = true;
+				}
+			});
+
+			// We set the bird id of the player
+			player.chocardPechoId = data.chocardPechoId;
+
+			// We update the player with fresh data
+			updatePlayer(player.playerId, player);
+
+			// We tell everyone this bird is already taken (huh, losers!)
+			io.sockets.emit('chocardPechoBySomeone', {
+				chocardPechoId: data.chocardPechoId
+			});
+		}
+	});
+
+	socket.on('callToRefreshPlayersCookie', function() {
+		console.log('[ADMIN] Refresh all players\' cookie');
+		players = [];
+		io.sockets.emit('refreshPlayersCookie', {});
+	});
+
+	socket.on('refreshChocardsList', function() {
+		// We update birds database
+		dataForTemplate.profils_chocards.forEach(function(profil) {
+			profil.choisi = false;
+		});
+	});
+
   socket.on("disconnect", function() {
-		console.log('Socket Logout of player ' + socket.playerId);
-		var i = players.indexOf(socket);
-		if (i != -1) {
-			players.splice(i, 1);
+		if (socket.data) {
+		//	console.log('Socket Logout of player ' + socket.data.playerId);
 		}
   });
 
 });
+
+function getPlayer(playerId) {
+	var r = null;
+	players.forEach(function(player) {
+		if (player.playerId == playerId) r = player;
+	});
+	return r;
+}
+
+function updatePlayer(playerId, playerUpdated) {
+	players.forEach(function(player, index) {
+		if (player.playerId == playerId) {
+			players[index] = playerUpdated;
+		}
+	});
+}
+
+function promptPlayers() {
+	console.log('- - - - -');
+	console.log(''+players.length+' player(s):');
+	players.forEach(function(player) {
+		console.log('#'+player.playerId);
+		console.log(JSON.stringify(player, null, 4));
+	});
+	console.log('- - - - -');
+}
 
 app.get('/', function(req, res) {
 	if ( req.param('message') != undefined ) {
 			data.message = req.param('message'); // La bonne faille XHR !
 		}
-	res.render('index',{ data: data });
+	res.render('index',{ data: dataForTemplate });
 });
 
 app.get('/naissance', function(req, res) {
 
-  res.render('naissance',{ data: data });
+  res.render('naissance',{ data: dataForTemplate });
 });
 
 app.get('/dedelavie', function(req, res) {
+  res.render('dedelavie',{ data: dataForTemplate });
+});
 
-  res.render('dedelavie',{ data: data });
+app.get('/admin', function(req, res) {
+  res.render('admin',{ data: dataForTemplate });
 });
 
 app.get('/roulette', function(req, res) {
 
-	res.render('roulette',{ data: data });
+	res.render('roulette',{
+		data: dataForTemplate
+	});
 });
 
 app.get('/tinder', function(req, res) {
 
-	res.render('tinder',{ data: data });
+	res.render('tinder',{ data: dataForTemplate });
 });
 
 app.listen(8080);
