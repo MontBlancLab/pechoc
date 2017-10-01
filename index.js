@@ -141,7 +141,7 @@ io.on('connection', function (socket) {
 	});
 
 	socket.on('callToRefreshPlayersCookie', function() {
-		console.log('refresh');
+		console.log('[ADMIN] Refresh all players\' cookie');
 		players = [];
 		io.sockets.emit('refreshPlayersCookie', {});
 	});
