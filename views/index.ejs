@@ -13,30 +13,14 @@
 </head>
 
   <body>
-    <!-- Begin page content -->
-    <div class="container">
-      <div class="page-header">
-		<h2>Pécho chocard !</h2>
-      </div>
-	</div>
-	 <% if ( data.message == "dead" ) { %>
-		<div class="alert alert-danger">
-		  <strong>Argh !</strong>
-		  Oh ! Petit chocard tu es mort !
-		</div>
-	 <% } else { %>
-		<div class="alert alert-info">
-		  <strong>Youpi !</strong>
-		  Petit chocard, tu es vivant !
-		</div>
-	 <% } %>
       <!-- Begin page content -->
       <div class="container">
-      	<div id="buttonBar">
-      		<a class="btn btn-info" href="/naissance">Je suis dans mon oeuf...</a>
-      		<a class="btn btn-danger" href="/tinder">je voudrais pécho !</a>
+      	<div class="row">
+      		<div>
+      			<a id="splash" href="#"><img src="img/splash.png" width="90%"/></a>
+      		</div>
       	</div>
-      </div>
+       </div>
 
 	<footer class="footer">
 	</footer>
@@ -48,6 +32,10 @@
     <script type='text/javascript'>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script type='text/javascript'>
+	document.getElementById("splash").onclick = function () {
+		location.href="/naissance";
+	}
+
 	</script>
 
   <script src="/socket.io/socket.io.js"></script>

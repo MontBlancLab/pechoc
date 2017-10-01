@@ -16,6 +16,9 @@
  	body {
 	padding-top: 60px;
 	padding-bottom: 40px;
+	background-image: url(../img/bg-noir.png);
+	background-repeat: none;
+	background-size: cover;
 }
 div.roulette {
 	margin-top: 35px;
@@ -29,11 +32,12 @@ div.roulette {
 }
 
 div.roulette_container {
-	background-color:rgb(253, 252, 253);
+	background-color: black; /*rgb(253, 252, 253);*/
 	width:90%;
 	height:30%;
-	border:1px solid rgba(253, 252, 253, 0.31);
-	box-shadow:0px 0px 3px lightpink;margin:auto;
+	/*border:1px solid rgba(253, 252, 253, 0.31);*/
+	box-shadow:0px 0px 3px black;margin:auto;
+	margin-top:60%;
 }
 
 .btn_container {
@@ -87,11 +91,8 @@ div.ui-slider {
 }
  	</style>
 	</head>
-	<body>
+	<body id="body">
 		<div class="container">
-			<div class="page-header" style="">
-			</div>
-
 			<div class="row">
 				<div class="span4">
 					<div class="roulette_container" >
@@ -135,6 +136,8 @@ div.ui-slider {
 			console.log('stop');
 
       var chocardSelfId = $stopElm.attr("id");
+	  // Changer le background pour afficher le bon chocard.
+	  $('#body').css('background-image', "url(../img/roulette/profils/" + chocardPechoId + ".png)");
 
       socket.emit('chocardChosen', {
         chocardSelfId: chocardSelfId
