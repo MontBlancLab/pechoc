@@ -9,9 +9,12 @@
 
  	 <style>
 	 #buttonBar {
-	 	height:100%;
-	 	top: 70%;
+	 	height:80px;
+    text-align:center;
 	 	bottom :10%;
+    position:absolute;
+    left:0;
+    right:0;
 	 }
 
 	 body {
@@ -19,10 +22,22 @@
 		background-color:white;
 		background-image: url(img/bg-life.png);
 	    background-repeat: no-repeat;
-	    background-attachment: fixed;
-	    background-position: center;
+	    background-position: top center;
+      background-size:cover;
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
 	 }
-	 .red { border:1px solid red; }
+
+   .buttonDeadAlive {
+     width:80px;
+     height:80px;
+     background-size:contain;
+     display:inline-block;
+     margin:0 10px
+   }
 
 	</style>
 </head>
@@ -37,8 +52,8 @@
     	<div class="row">
     		<div class="col red center">
 		      	<div id="buttonBar">
-		      		<a class="buttonDeadAlive" href="/?message=dead"><img src="img/dedelavie/btn_mort.png" width="20%"/></a>
-		      		<a class="buttonDeadAlive" href="/roulette"><img src="img/dedelavie/btn_vivant.png" width="20%"/></a>
+		      		<a class="buttonDeadAlive" href="/?message=dead" style="background-image:url(img/dedelavie/btn_mort.png)" width="20%"/></a>
+		      		<a class="buttonDeadAlive" href="/roulette" style="background-image:url(img/dedelavie/btn_vivant.png)" width="20%"/></a>
 		      	</div>
     		</div>
     	</div>
