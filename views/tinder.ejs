@@ -92,9 +92,6 @@
 </head>
 
 <body class="tinderesque">
-  <header>
-    <h1>Pécho ton chocard</h1>
-  </header>
   <section>
     <div class="cardcontainer list">
       <ul class="cardlist">
@@ -123,7 +120,8 @@
 </div>
 <div class="splash conclu" style="background-image:url(/img/splash/conclu.png)"></div>
 <div class="splash rateau" style="background-image:url(/img/splash/rateau.png)"></div>
-<div class="splash prochain-tour" style="background-image:url(/img/splash/prochain-tour.png)"></div>
+<div class="splash prochain-tour-tinder" style="background-image:url(/img/splash/prochain-tour.png)"></div>
+<div class="splash prochain-tour-roulette" style="background-image:url(/img/splash/prochain-tour.png)"></div>
 
 <div class="btn-back"></div>
 
@@ -188,14 +186,32 @@ $(function(){
     });
   });
 
-  $('.conclu, .rateau').on('click', function(){
+  $('.rateau').on('click', function(){
     $('.splash').hide();
-    $('.prochain-tour').show();
+    $('.prochain-tour-tinder').show();
 
     $('.btn-back').on('click', function(){
       $('.splash').hide();
       $('.persuadez-suite').show();
     });
+  });
+
+  $('.conclu').on('click', function(){
+    $('.splash').hide();
+    $('.prochain-tour-roulette').show();
+
+    $('.btn-back').on('click', function(){
+      $('.splash').hide();
+      $('.persuadez-suite').show();
+    });
+  });
+
+  $('.prochain-tour-roulette').on('click', function(){
+    window.location.replace('/roulette');
+  });
+
+  $('.prochain-tour-tinder').on('click', function(){
+    window.location.replace('/tinder');
   });
 
   var zIndex = 10;
