@@ -7,40 +7,38 @@
 	<title>index</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 
+ 	 <style>
+
+
+.splash {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:99999999999999999999999991;
+  background-size: cover;
+  background-position: center center;
+  border: solid 16px white;
+}
+	</style>
 </head>
 
   <body>
-      <!-- Begin page content -->
-      <div class="container">
-      	<div class="row">
-      		<div>
-      			<a id="splash" href="#"><img src="img/splash.png"/></a>
-      		</div>
-      	</div>
-       </div>
+    <div class="template template-index">
+      <div class="splash btn-index-to-naissance" style="background-image:url(img/splash.png)"/></div>
+    </div>
 
-	<footer class="footer">
-	</footer>
+    <div class="template template-naissance">
+      <div class="splash btn-index-to-naissance" style="background-image:url(img/splash.png)"/></div>
+    </div>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script type='text/javascript'>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script type='text/javascript'>
-	document.getElementById("splash").onclick = function () {
-		location.href="/naissance";
-	}
+  	<script src="/js/bootstrap.min.js"></script>
 
-	</script>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/public/js/js.cookie.js"></script>
-  <script src="/public/js/script.js"></script>
-<script>
-
-</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/public/js/js.cookie.js"></script>
+    <script src="/public/js/script.js"></script>
 
   </body>
 </html>
