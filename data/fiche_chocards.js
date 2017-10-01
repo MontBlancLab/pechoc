@@ -1,48 +1,6 @@
 module.exports = {
   chocards : [
   {
-    "code": "WNNP",
-    "date_obs": "04/08/2016",
-    "year": 2016,
-    "site": "LAC BLANC",
-    "sexe": "M",
-    "date_cap": "15/08/2000",
-    "heure": 15,
-    "poids": 228,
-    "aile": 268,
-    "queue": 173,
-    "tarse": "48,9",
-    "long_bec": "19,7",
-    "larg_bec": "13,1",
-    "ep_bec": "10,4",
-    "age_typ": "JUV",
-    "annee": 2000,
-    "age": 17,
-    "lieu": "LAC BLANC",
-    "pecho": ""
-  },
-  {
-    "code": "WNNR",
-    "date_obs": "22/01/2016",
-    "year": 2016,
-    "site": "MONTROC",
-    "sexe": "F",
-    "date_cap": "17/08/2000",
-    "heure": 7,
-    "poids": 183,
-    "aile": 246,
-    "queue": 157,
-    "tarse": "43,7",
-    "long_bec": "18,0",
-    "larg_bec": "12,4",
-    "ep_bec": "10,6",
-    "age_typ": "JUV",
-    "annee": 2000,
-    "age": 17,
-    "lieu": "COUVERCLE",
-    "pecho": ""
-  },
-  {
     "code": "WNNW",
     "date_obs": "16/01/2016",
     "year": 2016,
@@ -61,7 +19,8 @@ module.exports = {
     "annee": 2000,
     "age": 17,
     "lieu": "COUVERCLE",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard1.png"
   },
   {
     "code": "WNOP",
@@ -82,7 +41,8 @@ module.exports = {
     "annee": 1999,
     "age": 18,
     "lieu": "COUVERCLE",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard2.png"
   },
   {
     "code": "WNVW",
@@ -103,7 +63,8 @@ module.exports = {
     "annee": 2002,
     "age": 15,
     "lieu": "LAC BLANC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard3.png"
   },
   {
     "code": "WOBJ",
@@ -124,7 +85,8 @@ module.exports = {
     "annee": 2006,
     "age": 11,
     "lieu": "COUVERCLE",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard4.png"
   },
   {
     "code": "WOBO",
@@ -145,7 +107,8 @@ module.exports = {
     "annee": 2003,
     "age": 14,
     "lieu": "COUVERCLE",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard5.png"
   },
   {
     "code": "WOJP",
@@ -166,49 +129,8 @@ module.exports = {
     "annee": 2006,
     "age": 11,
     "lieu": "LAC BLANC",
-    "pecho": ""
-  },
-  {
-    "code": "WONO",
-    "date_obs": "18/01/2016",
-    "year": 2016,
-    "site": "MONTROC",
-    "sexe": "M",
-    "date_cap": "14/08/2008",
-    "heure": 14,
-    "poids": 240,
-    "aile": 0,
-    "queue": 178,
-    "tarse": "45,5",
-    "long_bec": "22,5",
-    "larg_bec": "13,4",
-    "ep_bec": "11,0",
-    "age_typ": "IM",
-    "annee": 2007,
-    "age": 10,
-    "lieu": "LAC BLANC",
-    "pecho": ""
-  },
-  {
-    "code": "WORP",
-    "date_obs": "03/02/2014",
-    "year": 2014,
-    "site": "MONTROC",
-    "sexe": "F",
-    "date_cap": "14/02/2009",
-    "heure": 10,
-    "poids": 180,
-    "aile": 245,
-    "queue": 151,
-    "tarse": "45,1",
-    "long_bec": "18,7",
-    "larg_bec": "12,6",
-    "ep_bec": "10,2",
-    "age_typ": "IM",
-    "annee": 2008,
-    "age": 9,
-    "lieu": "MONTROC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard6.png"
   },
   {
     "code": "WORV",
@@ -229,7 +151,8 @@ module.exports = {
     "annee": 2009,
     "age": 8,
     "lieu": "LAC BLANC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard7.png"
   },
   {
     "code": "WOVJ",
@@ -250,70 +173,8 @@ module.exports = {
     "annee": 2009,
     "age": 8,
     "lieu": "LAC BLANC",
-    "pecho": ""
-  },
-  {
-    "code": "WOVP",
-    "date_obs": "11/02/2014",
-    "year": 2014,
-    "site": "MONTROC",
-    "sexe": "F",
-    "date_cap": "15/08/2009",
-    "heure": 8,
-    "poids": 170,
-    "aile": 249,
-    "queue": 156,
-    "tarse": "44,7",
-    "long_bec": "16,9",
-    "larg_bec": "12,3",
-    "ep_bec": "10,0",
-    "age_typ": "JUV",
-    "annee": 2009,
-    "age": 8,
-    "lieu": "COUVERCLE",
-    "pecho": ""
-  },
-  {
-    "code": "WOVV",
-    "date_obs": "23/06/2017",
-    "year": 2017,
-    "site": "SIGNAL FORBES",
-    "sexe": "M",
-    "date_cap": "15/08/2009",
-    "heure": 9,
-    "poids": 232,
-    "aile": 264,
-    "queue": 166,
-    "tarse": "46,0",
-    "long_bec": "19,9",
-    "larg_bec": "13,4",
-    "ep_bec": "11,7",
-    "age_typ": "JUV",
-    "annee": 2009,
-    "age": 8,
-    "lieu": "COUVERCLE",
-    "pecho": ""
-  },
-  {
-    "code": "WVBB",
-    "date_obs": "28/01/2016",
-    "year": 2016,
-    "site": "MONTROC",
-    "sexe": "M",
-    "date_cap": "25/08/2009",
-    "heure": 8,
-    "poids": 210,
-    "aile": 266,
-    "queue": 164,
-    "tarse": "48,2",
-    "long_bec": "18,8",
-    "larg_bec": "14,0",
-    "ep_bec": "11,0",
-    "age_typ": "JUV",
-    "annee": 2009,
-    "age": 8,
-    "lieu": "COUVERCLE",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard8.png"
   },
   {
     "code": "WVBJ",
@@ -334,7 +195,8 @@ module.exports = {
     "annee": 2010,
     "age": 7,
     "lieu": "COUVERCLE",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard9.png"
   },
   {
     "code": "WVBN",
@@ -355,28 +217,8 @@ module.exports = {
     "annee": 2010,
     "age": 7,
     "lieu": "MONTROC",
-    "pecho": ""
-  },
-  {
-    "code": "WVBP",
-    "date_obs": "13/08/2017",
-    "year": 2017,
-    "site": "LAC BLANC",
-    "sexe": "M",
-    "date_cap": "11/08/2011",
-    "heure": 14,
-    "poids": 247,
-    "aile": 0,
-    "queue": 0,
-    "tarse": "45,5",
-    "long_bec": "22,3",
-    "larg_bec": "13,8",
-    "ep_bec": "12,5",
-    "age_typ": "IM",
-    "annee": 2010,
-    "age": 7,
-    "lieu": "LAC BLANC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard10.png"
   },
   {
     "code": "WVJW",
@@ -397,7 +239,8 @@ module.exports = {
     "annee": 2012,
     "age": 5,
     "lieu": "LAC BLANC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard11.png"
   },
   {
     "code": "WVNB",
@@ -418,49 +261,8 @@ module.exports = {
     "annee": 2011,
     "age": 6,
     "lieu": "LAC BLANC",
-    "pecho": ""
-  },
-  {
-    "code": "WVNJ",
-    "date_obs": "15/02/2015",
-    "year": 2015,
-    "site": "LOGNAN",
-    "sexe": "F",
-    "date_cap": "11/08/2012",
-    "heure": 7,
-    "poids": 200,
-    "aile": 0,
-    "queue": 0,
-    "tarse": "42,6",
-    "long_bec": "19,7",
-    "larg_bec": "12,2",
-    "ep_bec": "10,8",
-    "age_typ": "IM",
-    "annee": 2011,
-    "age": 6,
-    "lieu": "COUVERCLE",
-    "pecho": ""
-  },
-  {
-    "code": "WVOB",
-    "date_obs": "22/01/2016",
-    "year": 2016,
-    "site": "MONTROC",
-    "sexe": "F",
-    "date_cap": "15/08/2012",
-    "heure": 12,
-    "poids": 193,
-    "aile": 249,
-    "queue": 160,
-    "tarse": "41,0",
-    "long_bec": "17,0",
-    "larg_bec": "11,9",
-    "ep_bec": "10,5",
-    "age_typ": "JUV",
-    "annee": 2012,
-    "age": 5,
-    "lieu": "LAC BLANC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard12.png"
   },
   {
     "code": "WVRO",
@@ -481,7 +283,8 @@ module.exports = {
     "annee": 2013,
     "age": 4,
     "lieu": "MONTROC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard1.png"
   },
   {
     "code": "WWWW",
@@ -502,7 +305,8 @@ module.exports = {
     "annee": 2010,
     "age": 7,
     "lieu": "LAC BLANC",
-    "pecho": ""
+    "pecho": "",
+    "img": "img/chocard2.png"
   }
 ]
 }

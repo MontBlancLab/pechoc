@@ -3,34 +3,56 @@ var path = require('path');
 var express = require('express');
 var app = express();
 
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+
 var server = require('http').createServer(app);
 var data  = {
 	message : "",
 	chocards : {}
 };
 
-var bdd = require('./data/fiche_chocards.js');
+var bdd_tinder = require('./data/fiche_chocards.js');
+var bdd_profils = require('./data/fprofil_chocards.js');
 
 //---------------------------------------------------------------------------
 server.listen( port, function() {		
   console.log( 'it is listening at port %d', port );
-  console.log(bdd.chocards.length + " chocards.");
-  // for(var i=0; i < bdd.chocards.length; i++) {
-  // 	  console.log(bdd.chocards[i].code);
-  // }
+  console.log(bdd_tinder.chocards.length + " chocards dans Tinder.");
+  console.log(bdd_profils.chocards.length + " chocards dans les profils.");
   // ajout des chocards aux data
-  data.chocards = bdd.chocards;
-
-  for(var i=0; i < data.chocards.length; i++) {
-  	  console.log(data.chocards[i].code);
-  }
+  data.tinder_chocards = bdd_tinder.chocards;
+  data.profils_chocards = bdd_profils.chocards;
+  // for(var i=0; i < data.chocards.length; i++) {
+  // 	  console.log(data.chocards[i].code);
+  // }
 
 });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
+
+// app.use(session({
+//     store: new RedisStore(options),
+//     secret: 'keyboard cat'
+// }));
+//app.set('trust proxy', 1) // trust first proxy
+
+app.use(session({
+  secret: 'chocards-cookie',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {}
+}));
+/*
+{ 
+//   		secure: false,
+//   		code_profil: "",
+//   		code_pecho: ""
+//   	 }
+*/
+
 //app.use('/img', express.static(__dirname + '/img')); 
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
@@ -48,26 +70,22 @@ app.get('/', function(req, res) {
 	if ( req.param('message') != undefined ) {
 			data.message = req.param('message'); // La bonne faille XHR !
 		}
-	//var html = new EJS({url: 'index.ejs'}).render(data);
 	res.render('index',{ data: data });
-
-    //res.setHeader('Content-Type', 'text/html');
 });
 
 app.get('/naissance', function(req, res) {
 
 	res.render('naissance',{ data: data });
-	//var html = new EJS({url: 'naissance.ejs'}).render(data);
-    //res.end('ici l\'oeuf');
+});
+
+app.get('/roulette', function(req, res) {
+
+	res.render('roulette',{ data: data });
 });
 
 app.get('/tinder', function(req, res) {
 
 	res.render('tinder',{ data: data });
-	//var html = new EJS({url: 'tinder.ejs'}).render(data);
- 	//res.render('index', { data: data });
-
-    //res.end('Ici tinder');
 });
 
 app.listen(8080);

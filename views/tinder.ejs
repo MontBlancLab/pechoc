@@ -1,1 +1,53 @@
-Tinder
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://codepo8.github.io/tinderesque/demos/cuter/index.html -->
+<html>
+ <head>
+   <title>Pechoc > Tinder</title>
+   <link rel="stylesheet" href="/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="./css/tinderesque.css">
+   <link rel="stylesheet" type="text/css" href="./css/pechoc.css">
+   <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /> 
+   <meta http-equiv="X-UA-Compatible" content="chrome=1">
+   <meta name="google" value="notranslate">  
+   <style>
+
+  </style>
+</head>
+
+<body class="tinderesque">
+  <header>
+    <h1>Pécho ton chocard</h1>
+  </header>
+  <section>
+    <div class="cardcontainer list">
+      <ul class="cardlist">
+      <% for (var i=0; i< data.tinder_chocards.length; i++) { %>
+      <% if (data.tinder_chocards[i].pecho == "") { %>
+        <li><img src="<%= data.chocards[i].img %>" /><%= data.tinder_chocards[i].code %></li>
+      <% } %>
+      </ul>
+      <button class="but-nope">X</button>
+      <button class="but-yay">✔</button>
+      <span id="counter">8</span>
+    </div>
+    <ul class="cardlist" id="results">
+      <li><img src="./img/a-push-please.jpg" alt=""></li>
+      <li><img src="./img/awesome-mix-dog.jpg" alt=""></li>
+      <li><img src="./img/baby-rhino.jpg" alt=""></li>
+      <li><img src="./img/barbie-frenchie.jpg" alt=""></li>
+      <li><img src="./img/bear-dog.jpg" alt=""></li>
+      <li><img src="./img/best-day-ever-puppy.jpg" alt=""></li>
+      <li><img src="./img/bleh-puppy.jpg" alt=""></li>
+      <li><img src="./img/bleh-tapir.jpg" alt=""></li></ul>
+  </section>
+
+  <footer>
+    <p>Pécho ton Chocard !</p>
+  </footer>
+
+<script src="./js/tinderesque.js"></script>
+<script src="./js/cuter.js"></script>
+
+
+
+</body></html>
