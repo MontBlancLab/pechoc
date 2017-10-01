@@ -29,6 +29,25 @@
 	 	top: 90%;
 	 	left:40%;
 	 }
+   .splash {
+     position:absolute;
+     top:0;
+     left:0;
+     bottom:0;
+     right:0;
+     z-index:99999999999999999999999991;
+     background-size: cover;
+     background-position: center center;
+     border: solid 16px white;
+   }
+
+   .naissance-egg-click {
+     z-index:9090909090909090909090909090909090909090;
+   }
+
+   .naissance-egg-crack {
+     display:none;
+   }
 
 	</style>
 </head>
@@ -36,13 +55,16 @@
   <body>
     <!-- Begin page content -->
     <div class="container">
-		<a id="txtfeli" href="#"><img src="/img/naissance/txt-felicitation.png" width="60%"/></a>
+		<!-- <a id="txtfeli" href="#"><img src="/img/naissance/txt-felicitation.png" width="60%"/></a>
 		<a id="butChange" href="#"><img id="mainImage" src="/img/naissance/intro-01.png" width="90%"/></a>
-		<a id="flefeli" href="javascript:pageSuivante();"><img src="/img/naissance/fleche-felicitation.png" width="40%"/></a>
+		<a id="flefeli" href="javascript:pageSuivante();"><img src="/img/naissance/fleche-felicitation.png" width="40%"/></a> -->
     </div>
 
-	<footer class="footer">
-	</footer>
+
+    <div class="splash naissance-egg-click"></div>
+
+    <!-- <div class="splash naissance-egg" style="background-image:url(/img/naissance/intro-01.png)"></div> -->
+
 
 
     <!-- Bootstrap core JavaScript
@@ -52,7 +74,6 @@
 	<script src="/js/bootstrap.min.js"></script>
 	<script type='text/javascript'>
 	// Global vars
-    var target = document.getElementById('imageDOeuf');
     var counter = 0;
     var imgArray = [
         "/img/naissance/intro-01.png",
@@ -61,16 +82,26 @@
         "/img/naissance/intro-04.png"
     ];
 
-	var counter = 0;
-	$('#butChange').on('click', function () {
+	var counter = 1;
+
+
+  for (var i = 0; i < imgArray.length; i++) {
+    $('body').append('<div class="splash naissance-egg-crack" data-i="'+i+'" style="background-image:url('+imgArray[i]+');z-index:'+(100-i)+'">');
+  }
+
+  $('.naissance-egg-crack').first().show();
+
+	$('.naissance-egg-click').on('click', function () {
 		if ( counter <= imgArray.length) {
-		    document.getElementById('mainImage').src = imgArray[counter % imgArray.length];
-		    counter += 1;
-		    if (counter > imgArray.length) {
-		    	// L'oeuf est ouvert, les boutons alive/dead aparaîssent
-		    	// ici l'animation d'explosion de l'oeuf.
-		    	lancer_anim();
-		    }
+	  //  $('.naissance-egg').css('background-image','url('+imgArray[counter % imgArray.length]+')');
+      $('.naissance-egg-crack').hide();
+      $('.naissance-egg-crack[data-i="'+(counter)+'"]').show();
+	    counter += 1;
+	    if (counter > imgArray.length-1) {
+	    	// L'oeuf est ouvert, les boutons alive/dead aparaîssent
+	    	// ici l'animation d'explosion de l'oeuf.
+	    	lancer_anim();
+	    }
 		}
 	});
 
@@ -123,11 +154,19 @@
 		"/img/naissance/anim/intro_045.png",
     ];
 
+    for (var i = 0; i < animArray.length; i++) {
+      var j = (imgArray.length-1+i);
+      $('body').append('<div class="splash naissance-egg-crack" data-i="'+(j)+'" style="background-image:url('+animArray[i]+');z-index:'+(100-j)+'">');
+    }
+
     function lancer_anim() {
       $('#butChange').off('click');
 
       if (animCounter < animArray.length) {
-    		document.getElementById('mainImage').src = animArray[animCounter];
+         var j = (imgArray.length-1+animCounter);
+         $('.naissance-egg-crack').hide();
+         $('.naissance-egg-crack[data-i="'+(j)+'"]').show();
+
   	  	animCounter++;
   	 	   setTimeout(lancer_anim, 1000/30);
    		} else {

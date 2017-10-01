@@ -38,6 +38,18 @@
      display:inline-block;
      margin:0 10px
    }
+   .splash {
+     position:absolute;
+     top:0;
+     left:0;
+     bottom:0;
+     right:0;
+     z-index:99999999999999999999999991;
+     background-size: cover;
+     background-position: center center;
+     border: solid 16px white;
+     display:none;
+   }
 
 	</style>
 </head>
@@ -52,12 +64,14 @@
     	<div class="row">
     		<div class="col red center">
 		      	<div id="buttonBar">
-		      		<a class="buttonDeadAlive" href="/?message=dead" style="background-image:url(img/dedelavie/btn_mort.png)" width="20%"/></a>
-		      		<a class="buttonDeadAlive" href="/roulette" style="background-image:url(img/dedelavie/btn_vivant.png)" width="20%"/></a>
+		      		<div class="buttonDeadAlive btn-dedelavie-dead" style="background-image:url(img/dedelavie/btn_mort.png)" width="20%"/></div>
+		      		<div class="buttonDeadAlive btn-dedelavie-alive" style="background-image:url(img/dedelavie/btn_vivant.png)" width="20%"/></div>
 		      	</div>
     		</div>
     	</div>
     </div>
+
+    <div class="splash dedelavie-dead" style="background-image:url(img/splash/mort.png)"></div>
 
 	<footer class="footer">
 	</footer>
@@ -69,6 +83,10 @@
     <script type='text/javascript'>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script type='text/javascript'>
+
+  $('.btn-dedelavie-dead').on('click', function(){
+    $('.dedelavie-dead').show();
+  });
 	// Global vars
     var target = document.getElementById('imageDOeuf');
     var counter = 0;
@@ -76,7 +94,7 @@
         "img/Oeuf-02.png",
         "img/Oeuf-03.png"
     ];
-
+/*
 	var counter = 0;
 	document.getElementById('butChange').onclick = function () {
 		if ( counter <= 1) {
@@ -88,6 +106,7 @@
 		    }
 		}
 	}
+  */
 	</script>
 
   <script src="/socket.io/socket.io.js"></script>

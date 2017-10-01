@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html>
+ <head>
+	 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	 <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	 <meta name="google" value="notranslate">
+	<title>index</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+ 	 <style>
+
+
+.splash {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:99999999999999999999999991;
+  background-size: cover;
+  background-position: center center;
+  border: solid 16px white;
+}
+	</style>
+</head>
+
+  <body>
+      <!-- Begin page content -->
+      <div class="container">
+      	<div class="row">
+      		<div>
+      			<a id="splash" class="splash" href="#" style="background-image:url(img/splash.png)"/></a>
+      		</div>
+      	</div>
+       </div>
+
+	<footer class="footer">
+	</footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type='text/javascript'>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script type='text/javascript'>
+	document.getElementById("splash").onclick = function () {
+		location.href="/naissance";
+	}
+
+	</script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/js/js.cookie.js"></script>
+  <script src="/public/js/script.js"></script>
+<script>
+
+</script>
+
+  </body>
+</html>
