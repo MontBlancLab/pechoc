@@ -19,10 +19,10 @@ var bdd_profils = require('./data/profil_chocards.js');
 server.listen( port, function() {		
   console.log( 'it is listening at port %d', port );
   console.log(bdd_tinder.chocards.length + " chocards dans Tinder.");
-  console.log(bdd_profils.chocards.length + " chocards dans les profils.");
+  console.log(bdd_profils.profils.length + " chocards dans les profils.");
   // ajout des chocards aux data
   data.tinder_chocards = bdd_tinder.chocards;
-  data.profils_chocards = bdd_profils.chocards;
+  data.profils_chocards = bdd_profils.profils;
   // for(var i=0; i < data.chocards.length; i++) {
   // 	  console.log(data.chocards[i].code);
   // }
@@ -54,6 +54,7 @@ app.use(session({
 */
 
 //app.use('/img', express.static(__dirname + '/img')); 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
@@ -75,7 +76,12 @@ app.get('/', function(req, res) {
 
 app.get('/naissance', function(req, res) {
 
-	res.render('naissance',{ data: data });
+  res.render('naissance',{ data: data });
+});
+
+app.get('/dedelavie', function(req, res) {
+
+  res.render('dedelavie',{ data: data });
 });
 
 app.get('/roulette', function(req, res) {

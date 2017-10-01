@@ -19,7 +19,7 @@ module.exports = {
     "annee": 2000,
     "age": 17,
     "lieu": "COUVERCLE",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard1.png"
   },
   {
@@ -41,7 +41,7 @@ module.exports = {
     "annee": 1999,
     "age": 18,
     "lieu": "COUVERCLE",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard2.png"
   },
   {
@@ -63,7 +63,7 @@ module.exports = {
     "annee": 2002,
     "age": 15,
     "lieu": "LAC BLANC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard3.png"
   },
   {
@@ -85,7 +85,7 @@ module.exports = {
     "annee": 2006,
     "age": 11,
     "lieu": "COUVERCLE",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard4.png"
   },
   {
@@ -107,7 +107,7 @@ module.exports = {
     "annee": 2003,
     "age": 14,
     "lieu": "COUVERCLE",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard5.png"
   },
   {
@@ -129,7 +129,7 @@ module.exports = {
     "annee": 2006,
     "age": 11,
     "lieu": "LAC BLANC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard6.png"
   },
   {
@@ -151,7 +151,7 @@ module.exports = {
     "annee": 2009,
     "age": 8,
     "lieu": "LAC BLANC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard7.png"
   },
   {
@@ -173,7 +173,7 @@ module.exports = {
     "annee": 2009,
     "age": 8,
     "lieu": "LAC BLANC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard8.png"
   },
   {
@@ -195,7 +195,7 @@ module.exports = {
     "annee": 2010,
     "age": 7,
     "lieu": "COUVERCLE",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard9.png"
   },
   {
@@ -217,7 +217,7 @@ module.exports = {
     "annee": 2010,
     "age": 7,
     "lieu": "MONTROC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard10.png"
   },
   {
@@ -239,7 +239,7 @@ module.exports = {
     "annee": 2012,
     "age": 5,
     "lieu": "LAC BLANC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard11.png"
   },
   {
@@ -261,7 +261,7 @@ module.exports = {
     "annee": 2011,
     "age": 6,
     "lieu": "LAC BLANC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard12.png"
   },
   {
@@ -283,7 +283,7 @@ module.exports = {
     "annee": 2013,
     "age": 4,
     "lieu": "MONTROC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard1.png"
   },
   {
@@ -305,7 +305,7 @@ module.exports = {
     "annee": 2010,
     "age": 7,
     "lieu": "LAC BLANC",
-    "pecho": "",
+    "pecho": false,
     "img": "img/chocard2.png"
   }
 ]

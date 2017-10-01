@@ -19,7 +19,7 @@
     "annee": 2000,
     "age": 17,
     "lieu": "LAC BLANC",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard1.png"
   },
   {
@@ -41,7 +41,7 @@
     "annee": 2000,
     "age": 17,
     "lieu": "COUVERCLE",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard2.png"
   },
   {
@@ -63,7 +63,7 @@
     "annee": 2007,
     "age": 10,
     "lieu": "LAC BLANC",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard3.png"
   },
   {
@@ -85,7 +85,7 @@
     "annee": 2008,
     "age": 9,
     "lieu": "MONTROC",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard4.png"
   },
   {
@@ -107,7 +107,7 @@
     "annee": 2009,
     "age": 8,
     "lieu": "COUVERCLE",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard5.png"
   },
   {
@@ -129,7 +129,7 @@
     "annee": 2009,
     "age": 8,
     "lieu": "COUVERCLE",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard6.png"
   },
   {
@@ -151,7 +151,7 @@
     "annee": 2009,
     "age": 8,
     "lieu": "COUVERCLE",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard7.png"
   },
   {
@@ -173,7 +173,7 @@
     "annee": 2010,
     "age": 7,
     "lieu": "LAC BLANC",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard8.png"
   },
   {
@@ -195,7 +195,7 @@
     "annee": 2011,
     "age": 6,
     "lieu": "COUVERCLE",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard9.png"
   },
   {
@@ -217,7 +217,7 @@
     "annee": 2012,
     "age": 5,
     "lieu": "LAC BLANC",
-    "choisi": "",
+    "choisi": false,
     "img": "img/chocard10.png"
   }
   ]

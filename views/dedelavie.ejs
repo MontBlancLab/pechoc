@@ -4,34 +4,45 @@
 	 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /> 
 	 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 	 <meta name="google" value="notranslate">
-	<title>Naissance</title>
+	<title>Dé de la vie</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
   
  	 <style>
 	 #buttonBar {
-	 	visibility:hidden;
+	 	bottom :10%;
 	 }
+
+	 body { 
+		color:black;
+		background-color:white;
+		background-image: url(img/bg-life.png); 
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	    background-position: center; 
+	 }
+	 .red { border:1px solid red; }
 
 	</style>
 </head>
 
   <body>
     <!-- Begin page content -->
-    <div class="container">
-      <div class="page-header">
-		<h2>Bienvenu au monde petit chocard !</h2>
-      </div>
-		<a id="butChange" href="#"><img id="mainImage" src="img/Oeuf-01.png" width="30%"/></a>
+    <div class="container-fluid">
+    	<div class="row">
+    		<div class="col">
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="col red center">
+		      	<div id="buttonBar">
+		      		<a class="buttonDeadAlive" href="/?message=dead"><img src="img/dedelavie/btn_mort.png" width="20%"/></a>
+		      		<a class="buttonDeadAlive" href="/roulette"><img src="img/dedelavie/btn_vivant.png" width="20%"/></a> 
+		      	</div>     	    			
+    		</div>
+    	</div>
     </div>
 
 	<footer class="footer">
-<!--       <div class="container"> 
-      	<div id="buttonBar">
-      		<p>Tirez le dé pour savoir su votre poussin est viable sur cette première année</p>
-      		<a class="buttonDeadAlive" href="/?message=dead"><img src="img/btn_mort.png" width="20%"/></a>
-      		<a class="buttonDeadAlive" href="/roulette"><img src="img/btn_vivant.png" width="20%"/></a> 
-      	</div>     	
-      </div> -->
 	</footer>
 
 
@@ -56,8 +67,7 @@
 		    counter += 1;
 		    if (counter > 1) {
 		    	// L'oeuf est ouvert, les boutons alive/dead aparaîssent
-		    	//$("#buttonBar").attr("style", "visibility:visible;");
-		    	location.href = "/dedelavie";
+		    	$("#buttonBar").attr("style", "visibility:visible;");
 		    }
 		}    
 	}
