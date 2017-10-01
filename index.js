@@ -7,7 +7,7 @@ var app = express();
 
 var cookieParser = require('cookie-parser')
 
-var server = require('http').Server(app);
+var server = require('http').Server(app); //
 var io = require('socket.io')(server);
 
 var bdd_tinder = require('./data/fiche_chocards.js');
@@ -22,7 +22,6 @@ var connect = require('connect');
 		};
 
 //---------------------------------------------------------------------------
-
 
 
 var session = require("express-session")({
@@ -63,7 +62,7 @@ app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts
 
 
 
-server.listen( port, function() {
+server.listen(port, function() {
   console.log( 'it is listening at port %d', port );
   console.log(bdd_tinder.chocards.length + " chocards dans Tinder.");
   console.log(bdd_profils.profils.length + " chocards dans les profils.");
