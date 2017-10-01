@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0059)http://codepo8.github.io/tinderesque/demos/cuter/index.html -->
 <html>
  <head>
    <title>Pechoc > Tinder</title>
@@ -22,8 +21,9 @@
     <div class="cardcontainer list">
       <ul class="cardlist">
       <% for (var i=0; i< data.tinder_chocards.length; i++) { %>
-      <% if (data.tinder_chocards[i].pecho == "") { %>
-        <li><img src="<%= data.chocards[i].img %>" /><%= data.tinder_chocards[i].code %></li>
+        <% if (data.tinder_chocards[i].pecho == false) { %>
+          <li><img src="<%= data.tinder_chocards[i].img %>" /><%= data.tinder_chocards[i].code %></li>
+        <% } %>
       <% } %>
       </ul>
       <button class="but-nope">X</button>
