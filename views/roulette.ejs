@@ -116,9 +116,9 @@ div.ui-slider {
 
 	<script>
 
-  socket.on('chocardPechoBySomeone', function(data) {
-    console.log('Le chocard '+data.chocardPechoId+' a été choisi par la roulette');
-    $('.roulette[id="'+data.chocardPechoId+'"]').remove();
+  socket.on('chocardChosenBySomeone', function(data) {
+    console.log('Le chocard '+data.chocardSelfId+' a été choisi par un player');
+    $('.roulette[id="'+data.chocardSelfId+'"]').remove();
   });
 
 	var option = {
@@ -134,10 +134,10 @@ div.ui-slider {
 		stopCallback : function($stopElm) {
 			console.log('stop');
 
-      var chocardPechoId = $stopElm.attr("id");
+      var chocardSelfId = $stopElm.attr("id");
 
-      socket.emit('chocardPecho', {
-        chocardPechoId: chocardPechoId
+      socket.emit('chocardChosen', {
+        chocardSelfId: chocardSelfId
       });
 		}
 	}

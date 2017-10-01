@@ -3,13 +3,53 @@
  <head>
    <title>Pechoc > Tinder</title>
    <link rel="stylesheet" href="/css/bootstrap.min.css">
-   <link rel="stylesheet" type="text/css" href="./css/tinderesque.css">
-   <link rel="stylesheet" type="text/css" href="./css/pechoc.css">
    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
    <meta name="google" value="notranslate">
    <style>
+   .cardlist {
+     position:absolute;
+     top:0;
+     left:0;
+     bottom:0;
+     right:0;
+     font-size:0;
+     padding:0;
+     margin:0;
+   }
 
+   .cardlist li {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      border: solid 16px white;
+
+      position:absolute;
+      top:0;
+      left:0
+   }
+
+   .cardlist li.current {
+     position:absolute;
+     top:0;
+     left:0;
+   }
+
+   .but-yay {
+     position:absolute;
+     z-index:9999999999999999999999999;
+     width:60px;
+     height:60px;
+     background:url(/img/btn-tinder.png) no-repeat center center / contain transparent;
+     border:none;
+     bottom:50px;
+     left:50%;
+     transform:translateX(-50%)
+   }
   </style>
 </head>
 
@@ -22,35 +62,83 @@
       <ul class="cardlist">
       <% for (var i=0; i< data.tinder_chocards.length; i++) { %>
         <% if (data.tinder_chocards[i].pecho == false) { %>
-          <li><img src="<%= data.tinder_chocards[i].img %>" /><%= data.tinder_chocards[i].code %></li>
+          <li <% if (i == 0) { %>class="current"<% } %> style="background-image:url(/img/tinder/<%= data.tinder_chocards[i].code %>.png)" data-code="<%= data.tinder_chocards[i].code %>" data-sexe="<%= data.tinder_chocards[i].sexe %>"/></li>
         <% } %>
       <% } %>
       </ul>
       <button class="but-nope">X</button>
-      <button class="but-yay">✔</button>
+      <button class="but-yay"></button>
       <span id="counter">8</span>
     </div>
-    <ul class="cardlist" id="results">
-      <li><img src="./img/a-push-please.jpg" alt=""></li>
-      <li><img src="./img/awesome-mix-dog.jpg" alt=""></li>
-      <li><img src="./img/baby-rhino.jpg" alt=""></li>
-      <li><img src="./img/barbie-frenchie.jpg" alt=""></li>
-      <li><img src="./img/bear-dog.jpg" alt=""></li>
-      <li><img src="./img/best-day-ever-puppy.jpg" alt=""></li>
-      <li><img src="./img/bleh-puppy.jpg" alt=""></li>
-      <li><img src="./img/bleh-tapir.jpg" alt=""></li></ul>
   </section>
 
   <footer>
     <p>Pécho ton Chocard !</p>
   </footer>
+    <script type='text/javascript'>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+<script src="/public/js/hammer.min.js"></script>
+<script src="/public/js/jquery.hammer.js"></script>
 
-<script src="./js/tinderesque.js"></script>
-<script src="./js/cuter.js"></script>
 
   <script src="/socket.io/socket.io.js"></script>
 <script src="/public/js/js.cookie.js"></script>
 <script src="/public/js/script.js"></script>
 
+
+
+<script type="text/javascript">
+$(function(){
+
+var player = null;
+
+socket.on('player', function(p){
+  player = p;
+  console.log(player);
+  $('[data-sexe="'+player.chocard.sexe+'"]').remove();
+});
+
+  var zIndex = 10;
+
+  $('.cardlist').hammer().bind("swipeleft", function(ev){
+    zIndex++;
+
+    var oldCur = $('.current');
+    var newCur = oldCur.next();
+
+    if (oldCur.next().length == 0) {
+      newCur = $('.cardlist li').first();
+    }
+
+    oldCur.removeClass('current');
+
+    newCur.css({
+      left:'100%',
+      'z-index': zIndex
+    }).animate({
+      left:0
+    },500,'swing').addClass('current');
+  });
+
+  $('.cardlist').hammer().bind("swiperight", function(ev){
+    zIndex++;
+
+    var oldCur = $('.current');
+    var newCur = oldCur.prev();
+
+    if (oldCur.prev().length == 0) {
+      newCur = $('.cardlist li').last();
+    }
+
+    oldCur.removeClass('current');
+
+    newCur.css({
+      left:'-100%',
+      'z-index': zIndex
+    }).animate({
+      left:0
+    },500,'swing').addClass('current');
+  });
+});
+</script>
 
 </body></html>

@@ -20,7 +20,7 @@
     "age": 17,
     "lieu": "LAC BLANC",
     "choisi": false,
-    "img": "img/chocard1.png"
+    "img": "img/chocards/chocard1.png"
   },
   {
     "code": "WNNR",
@@ -42,7 +42,7 @@
     "age": 17,
     "lieu": "COUVERCLE",
     "choisi": false,
-    "img": "img/chocard2.png"
+    "img": "img/chocards/chocard2.png"
   },
   {
     "code": "WONO",
@@ -64,7 +64,7 @@
     "age": 10,
     "lieu": "LAC BLANC",
     "choisi": false,
-    "img": "img/chocard3.png"
+    "img": "img/chocards/chocard3.png"
   },
   {
     "code": "WORP",
@@ -86,7 +86,7 @@
     "age": 9,
     "lieu": "MONTROC",
     "choisi": false,
-    "img": "img/chocard4.png"
+    "img": "img/chocards/chocard4.png"
   },
   {
     "code": "WOVP",
@@ -108,7 +108,7 @@
     "age": 8,
     "lieu": "COUVERCLE",
     "choisi": false,
-    "img": "img/chocard5.png"
+    "img": "img/chocards/chocard5.png"
   },
   {
     "code": "WOVV",
@@ -130,7 +130,7 @@
     "age": 8,
     "lieu": "COUVERCLE",
     "choisi": false,
-    "img": "img/chocard6.png"
+    "img": "img/chocards/chocard6.png"
   },
   {
     "code": "WVBB",
@@ -152,7 +152,7 @@
     "age": 8,
     "lieu": "COUVERCLE",
     "choisi": false,
-    "img": "img/chocard7.png"
+    "img": "img/chocards/chocard7.png"
   },
   {
     "code": "WVBP",
@@ -174,7 +174,7 @@
     "age": 7,
     "lieu": "LAC BLANC",
     "choisi": false,
-    "img": "img/chocard8.png"
+    "img": "img/chocards/chocard8.png"
   },
   {
     "code": "WVNJ",
@@ -196,7 +196,7 @@
     "age": 6,
     "lieu": "COUVERCLE",
     "choisi": false,
-    "img": "img/chocard9.png"
+    "img": "img/chocards/chocard9.png"
   },
   {
     "code": "WVOB",
@@ -218,7 +218,7 @@
     "age": 5,
     "lieu": "LAC BLANC",
     "choisi": false,
-    "img": "img/chocard10.png"
+    "img": "img/chocards/chocard10.png"
   }
   ]
 }

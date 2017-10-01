@@ -56,6 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/public/js', express.static(__dirname + '/public/js')); // redirect bootstrap JS
+app.use('/public/css', express.static(__dirname + '/public/css')); // redirect bootstrap JS
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/jquery-ui/dist/css'));
 app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts')); // redirect bootstrap JS
@@ -104,12 +105,48 @@ io.on('connection', function (socket) {
 		// We set the player id to the current socket
 		socket.data.playerId = player.playerId;
 
+		socket.emit('player', player);
+
 		promptPlayers();
   });
 
 	/* * * * * * * * * *
 	 *
 	 * 	When a bird is taken by a player
+	 *
+	 */
+
+	socket.on('chocardChosen', function(data) {
+		// We get all player's data
+		var player = getPlayer(socket.data.playerId);
+
+		if (player != null) {
+			console.log('#'+player.playerId+' est le chocard : '+data.chocardSelfId);
+
+			// We update birds database
+			dataForTemplate.profils_chocards.forEach(function(profil) {
+				if (profil.code == data.chocardSelfId) {
+					profil.choisi = true;
+					player.chocard = profil;
+				}
+			});
+
+			// We set the bird id of the player
+			player.chocardSelfId = data.chocardSelfId;
+
+			// We update the player with fresh data
+			updatePlayer(player.playerId, player);
+
+			// We tell everyone this bird is already taken (huh, losers!)
+			io.sockets.emit('chocardChosenBySomeone', {
+				chocardSelfId: data.chocardSelfId
+			});
+		}
+	});
+
+	/* * * * * * * * * *
+	 *
+	 * 	When a bird is pecho by a player
 	 *
 	 */
 
@@ -121,9 +158,9 @@ io.on('connection', function (socket) {
 			console.log('#'+player.playerId+' a pécho un chocard : '+data.chocardPechoId);
 
 			// We update birds database
-			dataForTemplate.profils_chocards.forEach(function(profil) {
+			dataForTemplate.tinder_chocards.forEach(function(profil) {
 				if (profil.code == data.chocardPechoId) {
-					profil.choisi = true;
+					profil.pecho = true;
 				}
 			});
 
@@ -134,7 +171,7 @@ io.on('connection', function (socket) {
 			updatePlayer(player.playerId, player);
 
 			// We tell everyone this bird is already taken (huh, losers!)
-			io.sockets.emit('chocardPechoBySomeone', {
+			io.sockets.emit('chocardChosenBySomeone', {
 				chocardPechoId: data.chocardPechoId
 			});
 		}

@@ -20,7 +20,7 @@ module.exports = {
     "age": 17,
     "lieu": "COUVERCLE",
     "pecho": false,
-    "img": "img/chocard1.png"
+    "img": "img/chocards/chocard1.png"
   },
   {
     "code": "WNOP",
@@ -42,7 +42,7 @@ module.exports = {
     "age": 18,
     "lieu": "COUVERCLE",
     "pecho": false,
-    "img": "img/chocard2.png"
+    "img": "img/chocards/chocard2.png"
   },
   {
     "code": "WNVW",
@@ -64,7 +64,7 @@ module.exports = {
     "age": 15,
     "lieu": "LAC BLANC",
     "pecho": false,
-    "img": "img/chocard3.png"
+    "img": "img/chocards/chocard3.png"
   },
   {
     "code": "WOBJ",
@@ -86,7 +86,7 @@ module.exports = {
     "age": 11,
     "lieu": "COUVERCLE",
     "pecho": false,
-    "img": "img/chocard4.png"
+    "img": "img/chocards/chocard4.png"
   },
   {
     "code": "WOBO",
@@ -108,7 +108,7 @@ module.exports = {
     "age": 14,
     "lieu": "COUVERCLE",
     "pecho": false,
-    "img": "img/chocard5.png"
+    "img": "img/chocards/chocard5.png"
   },
   {
     "code": "WOJP",
@@ -130,7 +130,7 @@ module.exports = {
     "age": 11,
     "lieu": "LAC BLANC",
     "pecho": false,
-    "img": "img/chocard6.png"
+    "img": "img/chocards/chocard6.png"
   },
   {
     "code": "WORV",
@@ -152,7 +152,7 @@ module.exports = {
     "age": 8,
     "lieu": "LAC BLANC",
     "pecho": false,
-    "img": "img/chocard7.png"
+    "img": "img/chocards/chocard7.png"
   },
   {
     "code": "WOVJ",
@@ -174,7 +174,7 @@ module.exports = {
     "age": 8,
     "lieu": "LAC BLANC",
     "pecho": false,
-    "img": "img/chocard8.png"
+    "img": "img/chocards/chocard8.png"
   },
   {
     "code": "WVBJ",
@@ -196,7 +196,7 @@ module.exports = {
     "age": 7,
     "lieu": "COUVERCLE",
     "pecho": false,
-    "img": "img/chocard9.png"
+    "img": "img/chocards/chocard9.png"
   },
   {
     "code": "WVBN",
@@ -218,7 +218,7 @@ module.exports = {
     "age": 7,
     "lieu": "MONTROC",
     "pecho": false,
-    "img": "img/chocard10.png"
+    "img": "img/chocards/chocard10.png"
   },
   {
     "code": "WVJW",
@@ -240,7 +240,7 @@ module.exports = {
     "age": 5,
     "lieu": "LAC BLANC",
     "pecho": false,
-    "img": "img/chocard11.png"
+    "img": "img/chocards/chocard11.png"
   },
   {
     "code": "WVNB",
@@ -262,7 +262,7 @@ module.exports = {
     "age": 6,
     "lieu": "LAC BLANC",
     "pecho": false,
-    "img": "img/chocard12.png"
+    "img": "img/chocards/chocard12.png"
   },
   {
     "code": "WVRO",
@@ -284,7 +284,7 @@ module.exports = {
     "age": 4,
     "lieu": "MONTROC",
     "pecho": false,
-    "img": "img/chocard1.png"
+    "img": "img/chocards/chocard1.png"
   },
   {
     "code": "WWWW",
@@ -306,7 +306,7 @@ module.exports = {
     "age": 7,
     "lieu": "LAC BLANC",
     "pecho": false,
-    "img": "img/chocard2.png"
+    "img": "img/chocards/chocard2.png"
   }
 ]
 }
