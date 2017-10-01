@@ -17,6 +17,7 @@
 	 #txtfeli {
 	 	visibility: hidden;
 	 	position: absolute;
+	 	z-index: 1000;
 	 	top: 20%;
 	 	left:20%;
 	 }
@@ -24,6 +25,7 @@
 	 #flefeli {
 	 	visibility: hidden;
 	 	position: absolute;
+	 	z-index: 1000;
 	 	top: 90%;
 	 	left:40%;
 	 }
@@ -61,11 +63,10 @@
 
 	var counter = 0;
 	$('#butChange').on('click', function () {
-		console.log("Ici...");
-		if ( counter <= 5) {
+		if ( counter <= imgArray.length) {
 		    document.getElementById('mainImage').src = imgArray[counter % imgArray.length];
 		    counter += 1;
-		    if (counter > 4) {
+		    if (counter > imgArray.length) {
 		    	// L'oeuf est ouvert, les boutons alive/dead aparaîssent
 		    	// ici l'animation d'explosion de l'oeuf.
 		    	lancer_anim();
